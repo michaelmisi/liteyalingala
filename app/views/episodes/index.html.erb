@@ -1,0 +1,82 @@
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><%= link_to 'Tous les épisodes', episodes_path %></a>
+                </li>
+                <li>
+                    <a href="#"><%= link_to 'Nouvel épisode', new_episode_path %></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+				
+				
+				
+                    <div class="col-lg-12">
+                        <h1>Listing episodes</h1>
+
+						
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <tr>
+    <th>Titre</th>
+    <th>Description</th>
+    <th>Lien</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @episodes.each do |episode| %>
+  <tr>
+    <td><%= episode.titre %></td>
+    <td><%= episode.description %></td>
+    <td><%= episode.lien %></td>
+    <td><%= link_to 'Show', episode %></td>
+    <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
+    <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<span class="btn btn-default"><%= link_to 'Nouvel épisode', new_episode_path %></a>
+                   
+
+
+				   </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
